@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portfolio de Peterson SAINT-JACQUES </title>
+    <link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script>
+        function validateForm(event) {
+            event.preventDefault(); 
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            if (name === '' || email === '' || subject === '' || message === '') {
+                alert('Tous les champs doivent être remplis.');
+                return false;
+            }
+
+            
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Veuillez entrer une adresse e-mail valide.');
+                return false;
+            }
+
+            
+            alert('Formulaire soumis avec succès!');
+            document.getElementById('contactForm').submit(); 
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Contactez-moi</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="skills.html">Compétences</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="sports.html">Activités sportives</a></li>
+				<li><a href="testimonials.html">Témoignages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+             
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Formulaire de contact</h2>
+            <p>Vous avez des questions, des suggestions ou souhaitez me contacter pour une collaboration ? Remplissez le formulaire ci-dessous :</p>
+            <form action="submit_form.php" method="post">
+                <label for="name">Nom :</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">E-mail :</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="subject">Objet :</label><br>
+                <input type="text" id="subject" name="subject" required><br><br>
+
+                <label for="message">Message :</label><br>
+                <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+                <input type="submit" value="Envoyer">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Peterson. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
